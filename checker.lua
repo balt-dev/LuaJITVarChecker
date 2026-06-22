@@ -8,6 +8,7 @@ local forbidden_strlist = table.concat(forbidden_vars, ', '):gsub("^(.*),", "%1,
 
 local ffi = ({}).debug
 
+-- See lang/ast_validate.lua for reference on what I'm doing here.
 local function walk(ast_tree, line)
     if type(ast_tree) ~= "table" then return end
     if ast_tree.line then line = ast_tree.line end
