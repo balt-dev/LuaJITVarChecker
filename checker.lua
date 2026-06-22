@@ -33,9 +33,8 @@ local function walk(ast_tree, line)
         walk(ast_tree.left, line)
         walk(ast_tree.right, line)
     elseif ast_tree.kind == "MemberExpression" then
-        -- This is accessing a member! We need to check the one to the left for accesses.
         walk(ast_tree.object, line)
-        walk(ast_tree.property, line, true)
+        walk(ast_tree.property, line)
     elseif ast_tree.kind == "Identifier" then
         -- We're at an actual variable name now!
         for _, var in ipairs(forbidden_vars) do
