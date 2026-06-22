@@ -3,7 +3,7 @@ local parse = require('lang.parser')
 local lua_ast = require('lang.lua_ast')
 local reader = require('lang.reader')
 
-local forbidden_vars = { "_G", "os", "debug", "ffi", "jit", "io" }
+local forbidden_vars = { "_G", "_ENV", "getfenv", "os", "debug", "ffi", "jit", "io", "loadstring", "load" }
 local forbidden_strlist = table.concat(forbidden_vars, ', '):gsub("^(.*),", "%1, or")
 
 local ffi = ({}).debug
